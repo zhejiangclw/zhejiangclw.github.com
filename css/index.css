@@ -1,0 +1,167 @@
+/* 
+* @Author: Marte
+* @Date:   2017-03-31 09:57:24
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-03-31 15:13:50
+*/
+
+
+
+
+.top{
+    width:100%;
+    height:899px;
+    background-image: url(../imgs/bgi1.jpg);
+    background-repeat: no-repeat;
+    position:relative;
+}
+.message{
+    width: 398px;
+    height: 36px;
+    font-size: 20px;
+    color: rgb(9, 147, 158);
+    text-align: center;
+    line-height: 36px;
+    font-family: "微软雅黑";
+    position: absolute;
+    background-image: url(../imgs/bgi1_1.png);
+    left: 751px;
+    top: 300px;
+}
+
+
+
+
+.box1{
+    width:100%;
+    background-image: url(../imgs/head1_02.png);
+}
+.nav{
+    width: 100%;
+    
+    height: 30px;
+}
+.nav{
+    margin:auto;
+    width:1200px;
+    height:149px;
+    
+}
+.logo{
+    float: left;
+    width: 396px;
+    height: 149px;
+    background-repeat: no-repeat;
+    background-image: url(../imgs/tymyd_font.png);
+    background-position: 10px 10px;
+}
+.functionlan{
+    float: right;
+    width: 796px;
+    height: 119px;
+    margin-top: 29px;
+    
+}
+.functionlan dd{
+    width: 138px;
+    height: 52px;
+    background-image: url(../imgs/wdj_03.png);
+    float: right;
+    padding: 2px;
+    margin: 8px;
+    
+    
+}
+
+
+.lunbo{
+    width:1200px;
+    height:300px;
+    margin:auto;
+    background-color: #f0031f;
+}
+.lb_l,.lb_r{
+    float:left;
+    width:300px;
+    height:300px;
+    background-color: #000;
+}
+.lb_m{
+    float:left;
+    width:600px;
+    height:300px;
+}
+
+
+
+
+
+.body{
+    width:100%;
+    background-color: #fff;
+}
+.main{
+    width:1200px;
+    margin:auto;
+    background-color: #fff;
+}
+.m_l{
+    width:300px;
+    height:800px;
+    float:left;
+    background-color: #238328;
+}
+.myself{
+    width:300px;
+    background-color: #888232;
+}
+.studylist{
+    width:300px;
+    background-color: #932821;
+}
+.studylist dd{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.m_r{
+    width:900px;
+    background-color: #483438;
+    float:right;
+    height:800px;
+}
+.m_nav{
+    width:900px;
+    height:50px;
+    background-color: #fff230;
+}
+
+.m_nav>dl dd{
+    width:153px;
+    float:right;
+    margin-right: 20px;
+}
+.studyContent{
+    width:900px;
+    background-color: #238fff;
+}
+
+
+
+
+.foot{
+    width:100%;
+    height:150px;
+    background-color: black;
+}
+.bottom{
+    width:1200px;
+    height:150px;
+    margin:auto;
+    color:#fff;
+    line-height: 43px;
+    word-spacing: 8px;
+}
+
+
+
