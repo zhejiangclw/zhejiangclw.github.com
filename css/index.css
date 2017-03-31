@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2017-03-31 09:57:24
 * @Last Modified by:   Marte
-* @Last Modified time: 2017-03-31 15:13:50
+* @Last Modified time: 2017-03-31 17:51:09
 */
 
 
@@ -49,28 +49,43 @@
 }
 .logo{
     float: left;
-    width: 396px;
-    height: 149px;
+    width: 200px;
+    height: 75px;
     background-repeat: no-repeat;
     background-image: url(../imgs/tymyd_font.png);
     background-position: 10px 10px;
 }
 .functionlan{
     float: right;
-    width: 796px;
-    height: 119px;
-    margin-top: 29px;
+    width: 843px;
+    height: 75px;
+    margin-left: 11px;
     
 }
 .functionlan dd{
     width: 138px;
     height: 52px;
     background-image: url(../imgs/wdj_03.png);
-    float: right;
+    float: left;
     padding: 2px;
-    margin: 8px;
+    margin: 13px;
+    line-height: 52px;
     
     
+    
+}
+
+.functionlan dd>a{
+    text-decoration: none;
+    font-size: 30px;
+    font-family:"楷体" ;
+}
+.functionlan dd>a:hover{
+    color:rgb(142, 231, 231);
+}
+
+.point1{
+    margin-left: 15px;
 }
 
 
@@ -78,7 +93,7 @@
     width:1200px;
     height:300px;
     margin:auto;
-    background-color: #f0031f;
+   /*  background-color: #f0031f; */
 }
 .lb_l,.lb_r{
     float:left;
@@ -95,29 +110,58 @@
 
 
 
+.box3{
+    width:100%;
+    background-image: url(../imgs/2bg_02.png);
+}
+.box3_m{
+    width:1200px;
+    height:500px;
+    margin:auto;
+    background-color: #84614d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .body{
     width:100%;
-    background-color: #fff;
+    background-image: url(../imgs/foot_02.png);
+    height:712px;
 }
 .main{
     width:1200px;
     margin:auto;
-    background-color: #fff;
+    
 }
 .m_l{
     width:300px;
-    height:800px;
+    height:712px;
     float:left;
-    background-color: #238328;
+    margin-top: 15px;
+    
 }
 .myself{
     width:300px;
-    background-color: #888232;
+    
+}
+.myself table{
+    margin:auto;
 }
 .studylist{
     width:300px;
-    background-color: #932821;
+    
 }
 .studylist dd{
     text-align: center;
@@ -126,25 +170,35 @@
 
 .m_r{
     width:900px;
-    background-color: #483438;
+  
     float:right;
-    height:800px;
+    height:712px;
 }
 .m_nav{
     width:900px;
     height:50px;
-    background-color: #fff230;
+  
 }
 
+.m_nav>dl{
+    margin-top: 10px;
+}
 .m_nav>dl dd{
-    width:153px;
-    float:right;
+    width: 143px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(22, 167, 98);
+    float: right;
     margin-right: 20px;
+    line-height: 40px;
+    font-size: 20px;
+    font-family: "楷体";
 }
 .studyContent{
     width:900px;
-    background-color: #238fff;
+  
 }
+
 
 
 
