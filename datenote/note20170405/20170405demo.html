@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1</title>
+		<style>
+			tr{
+				border:1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<!--练习1-->
+		<!--<ul id="mylist">
+			<li class="myli">li1</li>
+			<li>li2</li>
+			<li>li3</li>
+			<li>li4</li>
+			<li class="myli">li5</li>
+			<li>li6</li>
+		</ul>-->
+		
+		
+		
+		
+		<!--练习2-->
+		姓名：<input type="text" id="name"/>
+		性别：<input type="text" id="sex"/>
+		成绩：<input type="text" id='gr'/>
+		<input type="button" value="提交"  onclick="add()"/>
+		<div class="demo2">
+			<table id="demo2_t" border='1px' cellspacing="0" width="400" >
+				<caption>魔形成绩单</caption>
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>成绩</th>
+						<th>行为</th>
+					</tr>
+				</thead>
+				<tbody align="center">
+					<tr>
+						<td>1</td>
+						<td>刘长彬</td>
+						<td>男</td>
+						<td>88</td>
+						<td><a href="javascript:;">删除</a></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>胡东</td>
+						<td>男</td>
+						<td>90</td>
+						<td><a href="javascript:;">删除</a></td>						
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>陈龙威</td>
+						<td>男</td>
+						<td>81</td>
+						<td><a href="javascript:;">删除</a></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>李一豪</td>
+						<td>男</td>
+						<td>75</td>
+						<td><a href="javascript:;">删除</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		
+		
+		<script type="text/javascript">
+			/*练习1*/
+			/*setInterval(function(){
+				document.title="你好世界"
+			},100)*/
+			/*console.log(get("mylist","myli"));
+			
+			function get(parent,className){
+				var arr=[];
+				var mylist=document.getElementById(parent);
+				for(var i=0;i<mylist.childNodes.length;i++){
+					if(mylist.childNodes[i].className==className){
+						arr.push(mylist.childNodes[i]);
+					}
+				}
+				return arr;
+			}*/
+			
+			
+			
+			
+			//练习2
+			//表格鼠标移入移除颜色变化
+			var demo2_t=document.getElementById("demo2_t");
+			var rows=demo2_t.tBodies[0].rows;//tBodies是tbody这个集合
+			var oldColor=null;
+			var num=rows.length;
+			function box1(){
+			for(var i=0;i<rows.length;i++){
+				rows[i].onmouseover=function(){
+					oldColor=this.style.backgroundColor;//代码从上往下执行，赋予原本的颜色					
+					this.style.backgroundColor="gray";
+					
+				}
+				rows[i].onmouseout=function(){
+					this.style.backgroundColor=oldColor;
+				}
+			}
+			//表格单双行变色
+			for(var i=0;i<rows.length;i++){
+				if(i%2){
+					rows[i].style.backgroundColor="gray";
+				}else{
+					rows[i].style.backgroundColor="";
+				}
+			}
+			}
+			
+			
+			
+			
+			function add(){
+				var name=document.getElementById("name").value;
+				var sex=document.getElementById("sex").value;
+				var gr=document.getElementById("gr").value;
+				
+				var tr=document.createElement("tr");
+				demo2_t.tBodies[0].appendChild(tr);
+				tr.setAttribute("style","background")
+				
+				
+				var Id=document.createElement("td");
+				var Num=++num;
+				Id.innerText=Num;
+				tr.appendChild(Id);
+				
+				
+				var Name=document.createElement("td");
+				Name.innerText=name;
+				tr.appendChild(Name);
+				var Sex=document.createElement("td");
+				Sex.innerText=sex;
+				tr.appendChild(Sex);
+				var Gr=document.createElement('td');
+				Gr.innerText=gr;
+				tr.appendChild(Gr);
+				var Del=document.createElement("td");
+				var A=document.createElement("a");
+				A.setAttribute("href","javascript:;");
+				A.innerText="删除";
+				Del.appendChild(A);
+				tr.appendChild(Del);
+				A.onclick=function(){//点击移除
+					this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
+					box1();
+				}
+				box1();
+			}
+			
+			box1();
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
