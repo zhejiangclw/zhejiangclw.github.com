@@ -73,7 +73,7 @@
 				<span><i style="font-size: 22px;font-family: 'times new roman';">clw live video</i></span>
 				<span id="getPic"><a href="javascript:getPicture()">截图</a></span>
 			</div>
-			<video width="610" height="380" id="myVideo" autoplay="">
+			<video width="610" height="380" id="myVideo" autoplay>
 				你的浏览器不支持video
 			</video>
 			<div id="open">
@@ -109,7 +109,7 @@
 			
 			
 			
-			function successFun(steam){
+			function successFun(stream){
 				if(myVideo.mozSrcObject!==undefined){
 					myVideo.mozSrcObject=stream;
 				}else{
@@ -125,4 +125,5 @@
 		</script>
 	</body>
 </html>
+
 
