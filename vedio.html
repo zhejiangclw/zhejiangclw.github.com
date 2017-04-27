@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+			body{
+				background-color: #bbb;
+			}
+			#video{
+				position: relative;
+				width: 610px;
+				height: 450px;
+				background-color: #fff;
+				border-radius: 20px;
+				
+			}
+			#video #title{
+				position: absolute;
+				text-align: center;
+				text-align: center;
+				line-height: 20px;
+				left: 250px;
+				
+			}
+			#video video{
+				position: absolute;
+				top: 30px;
+				background-color: #999;
+			}
+			#video #title #getPic{
+				position: absolute;
+				left: -230px;
+				top: 2px;
+				width: 80px;
+				border: 1px solid salmon;
+			}
+			#video #open{
+				position: absolute;
+				left: 6px;
+				top: 420px;
+				/*width: 80px;*/
+				/*border: 1px solid salmon;*/
+			}
+			#myCanvas{
+				position: absolute;
+				/*left:410px ;*/
+				border: 1px solid red;
+				background-color: #fff;
+				border-radius: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="video">
+			<div id="title">
+				<span>indexx live video</span>
+				<span id="getPic"><a href="">截图</a></span>
+			</div>
+			<video width="610" height="380" id="myVideo">
+				你的浏览器不支持video
+			</video>
+			<div id="open">
+				<a href="javascript:openCamera()">打开摄像头</a>
+			</div>
+		</div>
+		<video id="myCanvas" height="450" width="610">
+			
+		</video>
+		<script type="text/javascript">
+			var myVideo=document.getElementById('myVideo')
+			var myCanvas=document.getElementById('myCanvas');
+			var ctx=myCanvas.getContext("2d");
+			
+			var camera=window.navigator.getUserMedia || 
+			window.navigator.mozGetUserMedia || 
+			window.navigator.webkitGetUserMedia ||
+			window.navigator.msGetUserMedia;
+			
+			function openCamera(){
+				if(window.navigator.getUserMedia){
+					window.navigator.getUserMedia({
+						"video":true,
+						"audio":true
+					},successFun,errorFun);
+				}else{
+					alert("你的浏览器不支持开启摄像头！");
+				}
+			}
+			window.URL=window.URL ||
+			window.mozURL ||
+			window.webkitURL ||
+			window.msURL;
+			function successFun(steam){
+				if(myVideo.mozSrcObject!==undefined){
+					myVideo.mozSrcObject=stream;
+				}else{
+					myVideo.src=window.URL ? window.URL.createObjectURL(stream): stream;
+				}
+			}
+			function errorFun(err){
+				alert(err)
+			}
+			function getPicture(){
+				ctx.drawImage(myCanvas,0,0)
+			}
+		</script>
+	</body>
+</html>
