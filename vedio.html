@@ -1,169 +1,130 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		
 		<style type="text/css">
-			* {
-				margin: 0;
+			*{
 				padding: 0;
+				margin: 0;
+				font-family: "times new roman";
 			}
-			
-			body {
+			body{
 				background-color: #bbb;
 			}
-			
-			#video {
-				margin: 0 auto;
+			#video{
 				position: relative;
 				width: 610px;
 				height: 450px;
 				background-color: #fff;
 				border-radius: 20px;
+				margin: 0 auto;	
+				
 			}
-			
-			#video #title {
-				height: 20px;
+			#video #title{
 				position: absolute;
-				text-align: center;
+				text-align: center;				
 				line-height: 20px;
 				left: 250px;
+				
 			}
-			
-			#video video {
+			#video video{
 				position: absolute;
-				background-color: #999;
 				top: 30px;
+				background-color: #000;
 			}
-			
-			#video #title #getPic {
+			#video #title #getPic{
 				position: absolute;
 				left: -230px;
 				top: 2px;
-				width: 80px;
+				width: 60px;
+				border: 1px solid black;
+				border-radius: 30px;
 			}
-			
-			#video #open {
+			#video #open{
 				position: absolute;
-				left: 10px;
-				top: 420px;
+				left: 300px;
+				top: 410px;
+				
 			}
-			
-			#myCanvas {
-				position: absolute;
-				left: 410px;
-				border: 1px solid royalblue;
+			#printscreen{
+				width: 610px;
+				margin: auto;
+			}
+			#myCanvas{
+				position: relative;
+				margin: 0 auto;
+				/*left:410px ;*/
+				border: 1px solid black;
+				background-color: #fff;
 				border-radius: 20px;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+				font-family: "arial narrow";
 			}
 		</style>
 	</head>
-
 	<body>
+		
+		
 		<div id="video">
 			<div id="title">
-				<span id="">
-					indeex live video
-				</span>
-				<span id="getPic"> <a href="javascript:getPicture();">截图</a> </span>
+				<span><i style="font-size: 22px;">clw live video</i></span>
+				<span id="getPic"><a href="javascript:getPicture()">截图</a></span>
 			</div>
-			<video width="610" height="380" id="myVideo" autoplay>
-				你的浏览器不支持Video！
+			<video width="610" height="380" id="myVideo">
+				你的浏览器不支持video
 			</video>
 			<div id="open">
-				<a href="javascript:openCamera();"> 打开摄像头</a>
+				<a href="javascript:openCamera()" ><i style="font-size: 22px;font-family: "times new roman";">open</i></a>
 			</div>
 		</div>
-		<canvas id="myCanvas" width="610" height="450">
-			你的浏览器不支持canvas!
-		</canvas>
-		
-		<input type="text" name="ipt" id="ipt" value="" />
-		<div id="div"></div>
-		<!--<script type="text/javascript" src="qr/grid.js"></script>
-		<script type="text/javascript" src="qr/version.js"></script>
-		<script type="text/javascript" src="qr/detector.js"></script>
-		<script type="text/javascript" src="qr/formatinf.js"></script>
-		<script type="text/javascript" src="qr/errorlevel.js"></script>
-		<script type="text/javascript" src="qr/bitmat.js"></script>
-		<script type="text/javascript" src="qr/datablock.js"></script>
-		<script type="text/javascript" src="qr/bmparser.js"></script>
-		<script type="text/javascript" src="qr/datamask.js"></script>
-		<script type="text/javascript" src="qr/rsdecoder.js"></script>
-		<script type="text/javascript" src="qr/gf256poly.js"></script>
-		<script type="text/javascript" src="qr/gf256.js"></script>
-		<script type="text/javascript" src="qr/decoder.js"></script>
-		<script type="text/javascript" src="qr/qrcode.js"></script>
-		<script type="text/javascript" src="qr/findpat.js"></script>
-		<script type="text/javascript" src="qr/alignpat.js"></script>
-		<script type="text/javascript" src="qr/databr.js"></script>-->
 		
 		
-		<script src="lib/qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+		<div id="printscreen">
+			<canvas id="myCanvas" height="450" width="610" >
+				
+			</canvas>
+		</div>
+		
 		<script type="text/javascript">
-			var myVideo = document.getElementById("myVideo");
-			var myCanvas = document.getElementById("myCanvas");
-			var ipt = document.getElementById("ipt");
-			var div = document.getElementById("div");
+			var myVideo=document.getElementById('myVideo')
+			var myCanvas=document.getElementById('myCanvas');
 			var ctx = myCanvas.getContext("2d");
-
-			window.navigator.getUserMedia = window.navigator.getUserMedia ||
-				window.navigator.mozGetUserMedia ||
-				window.navigator.webkitGetUserMedia ||
-				window.navigator.msGetUserMedia;
-
-			function openCamera() {
-				if(window.navigator.getUserMedia) {
+			
+			
+			window.navigator.getUserMedia=window.navigator.getUserMedia ||window.navigator.mozGetUserMedia ||window.navigator.webkitGetUserMedia ||window.navigator.msGetUserMedia;			
+			function openCamera(){
+				if(window.navigator.getUserMedia){
 					window.navigator.getUserMedia({
-						"video": true,
-						"audio": true
-					}, successFun, errorFun);
-				} else {
+						"video":true,
+						"audio":true
+					},successFun,errorFun);
+				}else{
 					alert("你的浏览器不支持开启摄像头！");
 				}
 			}
-
-			window.URL = window.URL ||
-				window.mozURL ||
-				window.webkitURL ||
-				window.msURL;
-
-			function successFun(stream) {
-				if(myVideo.mozSrcObject !== undefined) {
-					myVideo.mozSrcObject = stream;
-				} else {
-					myVideo.src = window.URL ? window.URL.createObjectURL(stream) : stream;
+			window.URL=window.URL ||window.mozURL ||window.webkitURL ||window.msURL;
+			
+			
+			
+			function successFun(steam){
+				if(myVideo.mozSrcObject!==undefined){
+					myVideo.mozSrcObject=stream;
+				}else{
+					myVideo.src=window.URL ? window.URL.createObjectURL(stream) : stream;
 				}
 			}
-
-			function errorFun(err) {
+			function errorFun(err){
 				alert(err);
 			}
-
-			function getPicture() {
-				ctx.drawImage(myVideo, 0, 0);
-				canvasToImage(myCanvas);
-				getQr();
-			}
-
-			function getQr() {
-				qrcode.decode(window.location.href);
-			}
-
-			function canvasToImage(canvas) {
-				var type = "image/png";
-				var dataurl = ctx.canvas.toDataURL(type).replace("image/png", "image/octet-stream");
-				window.location.href = dataurl;
-			}
-			
-			var qrcode = new QRCode(document.getElementById("div"), {
-	width : 200,
-	height : 200
-});
-			ipt.onblur = function(){
-				qrcode.makeCode(ipt.value);
+			function getPicture(){
+				ctx.drawImage(myVideo,0,0);
 			}
 		</script>
 	</body>
-
 </html>
+
